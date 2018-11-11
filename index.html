@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Extractive Summarization</a></li>
+							<li><a href="#two">Abstractive Summarization</a></li>
+							<li><a href="#three">About Us</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>Scientific Article Summarization</h1>
+							<h3>Objective</h3>
+							<p>Need to come up with the most effective, appropriate and concise summary of a scientific article, given a dataset of scientific articles.</p>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
+							<div class="content">
+								<div class="inner">
+									<h2>Extractive</h2>
+									<p>Several techniques were used for finding the similarity between sentences like - <br />
+									<b>Common Words</b><br />
+									<b>Cosine Similarity</b><br />
+									<b>Word Embeddings</b><br />
+										</ul>
+									</p>
+									<h2>Model</h2>
+									<p><b>Graph Based</b> We create a matrix to document the similarity score between any two sentences. The idea is to choose sentences which are similar to many other sentences</p>
+									<h2>Scoring</h2>
+									<p><b>Multiple heuristics</b> common words, cosine similarity and page rank. Various hyperparameters were used to weigh the importance of each of the scoring algorithms while creating the summaries</p>
+									<h2>Results</h2>
+									<div class="split style1">
+										<ul class="actions">
+											<li><a href="generic.html" class="button">Input Article</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="generic.html" class="button">Output Summary</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2>Abstractive</h2>
+							<p>Involves building a summary of the text in the way that a human would build one. We pick ideas from several paragraphs or sentences, build readable sentences and present them in a concise form. </p>
+							<h2>Architecture</h2>
+							<img src="images/abs.jpg" alt="" data-position="center center" />
+							<p>Used an <b>Encoder Decoder Model</b> with <b>Attention Mechanism</b></p>
+							<p>Our architecture: <b>3 hidden layers</b> per encoder/decoder, of <b>1024 hidden units per cell</b>. We also used a <b>batch size of 128</b> and stored checkpoints every 50 steps. Output <b>dropout rate of 0.3</b> between layers.</p>
+							<ul>
+								<li>Created multiple models(<b>bucketing</b>), with same weights to decrease the amount of padding required to generate an output. This is due to the fact that our abstracts and summaries are of greatly varying lengths.</li>
+								<li>The buckets are used to match with the <b>input-output pairs</b>. Based on the length of the input summary and the output abstract, we match it to the nearest bucket</li>
+								<li>Each bucket corresponds to a full <b>encoder-decoder LSTM model</b>, however the weights used are common across them.</li>
+								<li>Attention used to give additional weight to the output hidden states and current state. It allows the decoder to pay <b>attention to different parts of the source</b> sequence at different decoding steps.</li>
+							</ul>
+							<!-- <ul class="actions">
+								<li><a href="generic.html" class="button">Learn more</a></li>
+							</ul> -->
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style2 fade-up">
+						<div class="inner">
+							<h2>Team #11</h2>
+							<div class="split style1">
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Members</h3>
+											<span>
+											Projit Bandyopadhyay (20161014)<br />
+											Avinash Vadlamudi (201501164)<br />
+											Shadaab Siddiqie (201502030)<br />
+											Kaushik L V (20172138)<br />
+											</span>
+										</li>
+										<li>
+											<h3>Email</h3>
+											<a href="#">projit.bandyopadhyay@students.iiit.ac.in</a><br />
+											<a href="#">avinash.vadlamudi@students.iiit.ac.in</a><br />
+											<a href="#">mashadaab.siddiqie@research.iiit.ac.in</a><br />
+											<a href="#">kaushik.lv@students.iiit.ac.in</a><br />
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
